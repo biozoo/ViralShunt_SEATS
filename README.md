@@ -1,5 +1,5 @@
 # ViralShunt_SEATS
-Datasets and documentation of all analytical procedures used in a scientific paper, "_Viral shunt in tropical oligotrophic ocean_"
+Datasets and documentation of all analytical procedures from a scientific paper, "_Viral shunt in tropical oligotrophic ocean_"
 
 
 This repoitory containes high-frequency microbial data collected from South-East Asia Time Series station (i.e. SEATS; 18 oN, 116 oE). The users should contact the database administrator (fkshiah@gate.sinica.edu.tw) and strictly follow Terms of Use below
