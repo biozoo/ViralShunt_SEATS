@@ -1,5 +1,5 @@
 ### SUPPLEMENTARYINFORMATION_RCODE - Full Code
-### Last Updated May 25, 2022
+### Last Updated May 30, 2022
 rm(list = ls())
 library(lmodel2)
 library(dplyr)
@@ -16,7 +16,7 @@ seed.t=21591
 set.seed(seed.t)
 
 # Loading high-frequency microbial data collected from South-East Asia Time Series station (i.e. SEATS; 18 oN, 116 oE)
-# The data users should contact the database administrator (fkshiah@gate.sinica.edu.tw) and strictly follow the terms of use below
+# The users should contact the database administrator (fkshiah@gate.sinica.edu.tw) and strictly follow the terms of use below
 # Terms of Use
 ##### I. You must acknowledge the use of content.
 ##### II. Monitoring data is made available for use in activities of a non-profit nature only.
@@ -28,15 +28,14 @@ plot.dat <- read.csv("SEATS_MicrobialData.csv") # read in plot-level data with r
 date.name=as.character(plot.dat[,'Date_first'])
 site.name=unique(date.name)
 n.cruise=length(site.name)
-site.name2=paste(1:n.cruise,
-                        month.abb[as.numeric(unlist(lapply(site.name,function(x){strsplit(x,'/')[[1]][2]})))],
+site.name2=paste(1:n.cruise, month.abb[as.numeric(unlist(lapply(site.name,function(x){strsplit(x,'/')[[1]][2]})))],
                         as.numeric(unlist(lapply(site.name,function(x){strsplit(x,'/')[[1]][1]}))),sep='. ')
 color.all=c('blue3','green2','red3',"olivedrab","cyan1","gray50","orange3","turquoise4","violet")
 date.pty=color.all[plot.dat[,'cruise_number']]
 
 
-win.graph(20, 10); par(mfrow=c(1,2))
 # Figure 1A
+win.graph(20, 10); par(mfrow=c(1,2))
 x='Virus';y='BB';
 plot(log(plot.dat[,y]) ~ log(plot.dat[,x]),ylim=range(log(plot.dat[,y])[!is.na(plot.dat[,x])],na.rm=T),
      cex.main=1.3, font.main=1, pch=21, col="black", main="", bg=date.pty, lwd=1.5, cex.lab=1.4, cex=1.2, cex.axis=1.2,
@@ -80,10 +79,8 @@ legend(-1.5,-2.7,
        bty='n',cex=1.2)
 
 
-
-
 ###############################################################################
-### Cross-correlation analysis for depth-integrated data
+### Cross-correlation analysis (depth-integrated data)
 cvbm.d=NULL
 da.na.d=NULL
 dat.intd=NULL
@@ -111,7 +108,7 @@ colnames(cvbm.d)=c('cruise_number',paste('lag',c(0:lgmx)*3,sep='-'))
 colnames(da.na.d)[-c(1:2)]=c('Virus','SGR','SGR_lag6','Virus_TR','SGR_TR','SGR_TR_lag6')
 
 ###############################################################################
-### Cross-correlation analysis (discrete depth)
+### Cross-correlation analysis (discrete depths)
 cvbm=NULL
 da.na=NULL
 dcri=4 # Two adjacent measures separated by more than 4 hours needs to insert NA 
@@ -136,6 +133,7 @@ for(i in 1:n.cruise){
 
 colnames(cvbm)=c('cruise_number','depth',paste('lag',c(0:lgmx)*3,sep='-'))
 colnames(da.na)[-c(1:3)]=c('Virus','SGR','SGR_lag6','Virus_TR','SGR_TR','SGR_TR_lag6')
+
 
 ######################################################################
 # Fig 2. The diel changes of depth-averaged values
