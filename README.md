@@ -2,7 +2,7 @@
 Datasets and documentation of all analytical procedures used from a scientific paper, "_Viral shunt in tropical oligotrophic ocean_"
 
 
-This repoitory containes high-frequency microbial data collected from South-East Asia Time Series station (i.e. SEATS; 18 oN, 116 oE). The users should contact the database administrator (fkshiah@gate.sinica.edu.tw) and strictly follow the terms of use below
+This repoitory containes high-frequency microbial data collected from South-East Asia Time Series station (i.e. SEATS; 18 oN, 116 oE). The users should contact the database administrator (fkshiah@gate.sinica.edu.tw) and strictly follow Terms of Use below
 # Terms of Use
 I. You must acknowledge the use of content.
 
